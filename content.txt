@@ -1,0 +1,5 @@
+1. Class and Object.
+2. Class has data/attributes and functions.
+    >Code Walkthrough
+3. Why Python is called OOPs.-> Everything in Python is an Object.
+4. 
