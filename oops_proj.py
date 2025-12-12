@@ -11,15 +11,17 @@ class Chatbook:
                            2. Press 2 to signup
                            3. Press 3 to write a post
                            4. Press 4 to message a friend
-                           5. Press any other key to exit""")
+                           5. Press any other key to exit
+                           
+                           Your choice: """)
         if user_input == '1':
-            self.login()  # login functionality to be implemented
+            self.login()  
         elif user_input == '2':
             self.signup()
         elif user_input == '3':
-            pass  # write post functionality to be implemented
+            self.write_post()
         elif user_input == '4':
-            pass  # message friend functionality to be implemented
+            self.send_msg()
         else:
             print("Exiting Chatbook. Goodbye!")
             exit()     
@@ -35,7 +37,7 @@ class Chatbook:
     
     def login(self):
         if self.username == "" and self.password == "":
-            print("No user found. Please sign up first by pressing 1 in main menu.")
+            print("No user found. Please sign up.")
             self.menu()
         else:
             email = input("Enter your email: ")
@@ -46,6 +48,25 @@ class Chatbook:
             else:
                 print("Invalid credentials. Please try again.")
             print("\n")
-            self.menu()
+        self.menu()
 
-obj = Chatbook() 
+    def write_post(self):
+        if self.loggedin:
+            post_content = input("Write your post here: ")
+            print("Post published successfully!", post_content)
+        else:
+            print("You need to log in to write a post.")
+        print("\n")
+        self.menu()
+
+    def send_msg(self):
+        if self.loggedin:
+            friend_name = input("Enter your friend's name: ")
+            message = input("Enter your message: ")
+            print(f"Message sent to {friend_name}: {message}")
+        else:
+            print("You need to log in to send messages.")
+        print("\n")
+        self.menu()
+
+#obj = Chatbook() 
