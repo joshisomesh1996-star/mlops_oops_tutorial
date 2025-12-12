@@ -1,9 +1,15 @@
 class Chatbook:
+
+    __user_id  = 1
+
     def __init__(self):
+        self.id = Chatbook.__user_id
+        Chatbook.__user_id += 1
+        self.__name = "Default User"
         self.username = ""
         self.password = ""
         self.loggedin = False
-        self.menu()
+        #self.menu()
     
     def menu(self):
         user_input = input("""Welcome to Chatbook !! How would you like to proceed?
@@ -68,5 +74,21 @@ class Chatbook:
             print("You need to log in to send messages.")
         print("\n")
         self.menu()
+    
+    def get_name(self):
+        return self.__name
+    
+    def set_name(self, new_name):
+        self.__name = new_name
+    
+    @staticmethod
+    def get_id():
+        return Chatbook.__user_id
+    
+    @staticmethod
+    def set_id(val):
+        Chatbook.__user_id = val
+        
+    
 
 #obj = Chatbook() 
